@@ -69,3 +69,30 @@ textarea{
   font-size: 20px;
   transition: all .3s ease-in-out;
 }
+.container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.row {
+  display: flexbox;
+  flex-direction: row;
+  width: 90%;
+  border-bottom: 2px solid black;
+}
+.time {
+  width: 25%;
+  border: 2px black solid;
+}
+.text-area {
+  border: 2px black solid;
+
+  width: 50%;
+}
+.save-btn {
+  border: 2px black solid;
+
+  width: 25%;
+}
