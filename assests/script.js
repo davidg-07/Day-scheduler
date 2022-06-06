@@ -4,6 +4,7 @@ var saveButtons = document.getElementsByClassName('save-btn')
 console.log(saveButtons)
 var button = document.getElementsByTagName('button')
 
+
 function getHeaderDate() {
     var updateCurrentHeaderDate = moment().format('dddd, MMMM Do');
     $("#currentDay").text(updateCurrentHeaderDate);
@@ -16,7 +17,30 @@ function saveItem(i) {
     // Save to Local Storage
 }
 
+function checkTime(givenTime, textdiv) {
+    var currentTime = moment().hour();
+    // console.log(currentTime)
+    // Accept a time that is given
+    // console.log(moment(givenTime).format('LT'))
+// Check if the time is in the past
+if (currentTime < givenTime){
+    // If in the past, give it class past,
+    // locate the text area and color it with classes
+    textdiv.classList.add('future')
+    console.log("It's in the future")
+} else if (currentTime > givenTime) {
+    // If in the present, give it class present,
+    console.log("It's in the past")
+    textdiv.classList.add('past')
 
+} else {
+    // In the present
+    console.log("in the present")
+    textdiv.classList.add('present')
+
+}
+}
+// checkTime('11');
 getHeaderDate();
 
 var planner = [
@@ -83,6 +107,13 @@ var planner = [
     
 ]
 
-for (i=0; i<button.length; i++){
-    button[i].addEventListener("click", saveItem(i))
+// for (i=0; i<button.length; i++){
+//     button[i].addEventListener("click", saveItem(i))
+
+// }
+
+for (i=0; i< times.length; i++){
+    let timeElement = times[i].dataset.id
+    let textElementSibling = times[i].nextSibling.nextElementSibling
+    checkTime(timeElement,textElementSibling)
 }
