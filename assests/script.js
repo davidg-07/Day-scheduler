@@ -1,11 +1,25 @@
+var times = document.getElementsByClassName('time')
+console.log(times)
+var saveButtons = document.getElementsByClassName('save-btn')
+console.log(saveButtons)
+var button = document.getElementsByTagName('button')
+
 function getHeaderDate() {
     var updateCurrentHeaderDate = moment().format('dddd, MMMM Do');
     $("#currentDay").text(updateCurrentHeaderDate);
 }
 
+
+function saveItem(i) {
+    console.log(i)
+    var saveItem= button[i].parentElement.previousElementSibling.firstElementChild
+    // Save to Local Storage
+}
+
+
 getHeaderDate();
 
-  var planner = [
+var planner = [
     {
         id: "a",
         hour: "09:00",
@@ -68,3 +82,7 @@ getHeaderDate();
     },
     
 ]
+
+for (i=0; i<button.length; i++){
+    button[i].addEventListener("click", saveItem(i))
+}
