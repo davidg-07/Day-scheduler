@@ -27,16 +27,16 @@ $(document).ready(function () {
         var currentHour = moment().hour(); 
         // use of moment.js
         $(".time-block").each(function () {
-            var blockHour = parseInt($(this).attr("id").split("hour")[1]);
-            console.log( blockHour, currentHour)
+            var Hour = parseInt($(this).attr("id").split("hour")[1]);
+            console.log( Hour, currentHour)
 
             //check if we've moved past this time, click into css/html given classes of past, present, or future
-            if (blockHour < currentHour) {
+            if (Hour < currentHour) {
                 $(this).addClass("past");
                 $(this).removeClass("future");
                 $(this).removeClass("present");
             }
-            else if (blockHour === currentHour) {
+            else if (Hour === currentHour) {
                 $(this).removeClass("past");
                 $(this).addClass("present");
                 $(this).removeClass("future");
